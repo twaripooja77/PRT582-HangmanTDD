@@ -1,0 +1,6 @@
+[MASTER]
+ignore=tests
+[MESSAGES CONTROL]
+disable=missing-module-docstring,missing-class-docstring,missing-function-docstring,C0114,C0115,C0116
+[FORMAT]
+max-line-length=100

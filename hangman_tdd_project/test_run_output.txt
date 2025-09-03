@@ -1,0 +1,12 @@
+test_dictionary_validation (test_game.HangmanTests.test_dictionary_validation) ... ok
+test_masking_letters_only (test_game.HangmanTests.test_masking_letters_only) ... ok
+test_masking_policy_all_chars (test_game.HangmanTests.test_masking_policy_all_chars) ... ok
+test_phrase_masking_and_validation (test_game.HangmanTests.test_phrase_masking_and_validation) ... ok
+test_random_generators_are_valid (test_game.HangmanTests.test_random_generators_are_valid) ... ok
+test_timeout_penalty (test_game.HangmanTests.test_timeout_penalty) ... ok
+test_wrong_guess_deducts_life (test_game.HangmanTests.test_wrong_guess_deducts_life) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+OK

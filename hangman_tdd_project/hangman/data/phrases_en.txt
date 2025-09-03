@@ -1,0 +1,21 @@
+# Phrases; alphabetic tokens must exist in dictionary (words_en.txt).
+data science
+machine learning
+project report
+game over
+unit testing
+software quality
+random forest
+logistic regression
+hello world
+sydney harbour bridge
+winter season
+spring semester
+good morning
+visual analysis
+access token
+client server
+read the docs
+hands on project
+clean code
+open source
