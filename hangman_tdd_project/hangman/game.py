@@ -8,9 +8,8 @@ from .words import WordProvider, tokenize
 
 
 class MaskingPolicy(Enum):
-    LETTERS_ONLY = auto()  # reveal punctuation & spaces; mask only letters
-    ALL_CHARS = auto()     # mask everything except spaces
-
+    LETTERS_ONLY = auto()  
+    ALL_CHARS = auto()     
 
 @dataclass
 class HangmanGame:
@@ -22,7 +21,7 @@ class HangmanGame:
     provider: Optional[WordProvider] = None
 
     guessed: Set[str] = field(default_factory=set, init=False)
-    status: str = field(default="in_progress", init=False)  # in_progress|won|lost
+    status: str = field(default="in_progress", init=False) 
 
     def __post_init__(self) -> None:
         self.answer = self.answer.strip()
@@ -30,7 +29,6 @@ class HangmanGame:
             raise ValueError("Answer must be non-empty")
         if self.provider is None:
             self.provider = WordProvider()
-        # Validate word/phrase
         if " " in self.answer or any(not ch.isalpha() and ch != " " and ch not in "-'!,.?" for ch in self.answer):
             if not self.provider.is_valid_phrase(self.answer):
                 raise ValueError("Phrase not valid against dictionary")
@@ -38,7 +36,6 @@ class HangmanGame:
             if not self.provider.is_valid_word(self.answer):
                 raise ValueError("Word not valid against dictionary")
 
-    # -------------------- Query methods --------------------
     def normalized_answer(self) -> str:
         return self.answer.lower()
 
@@ -57,7 +54,6 @@ class HangmanGame:
     def used_letters(self) -> Set[str]:
         return set(sorted(self.guessed))
 
-    # -------------------- Game mechanics --------------------
     def guess(self, letter: str) -> bool:
         if self.status != "in_progress":
             return False
