@@ -1,4 +1,3 @@
-"""Interactive CLI for Hangman with 15s timer per guess."""
 from __future__ import annotations
 
 import random
@@ -60,7 +59,6 @@ def play(seed: Optional[int] = None) -> None:
 
 
 def spaced(masked: str) -> str:
-    """Insert spaces between characters for clarity (UI only)."""
     return " ".join(list(masked))
 
 

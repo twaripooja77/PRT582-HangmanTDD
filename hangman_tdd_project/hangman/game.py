@@ -1,4 +1,3 @@
-"""Core Hangman game logic (no I/O)."""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -15,10 +14,6 @@ class MaskingPolicy(Enum):
 
 @dataclass
 class HangmanGame:
-    """Stateful Hangman game engine.
-
-    This class is UI-agnostic and testable: no input()/print() calls.
-    """
 
     answer: str
     lives: int = 6
@@ -48,7 +43,6 @@ class HangmanGame:
         return self.answer.lower()
 
     def masked(self) -> str:
-        """Return the masked representation according to masking policy."""
         out = []
         for ch in self.answer:
             if ch.isalpha():
@@ -65,7 +59,6 @@ class HangmanGame:
 
     # -------------------- Game mechanics --------------------
     def guess(self, letter: str) -> bool:
-        """Apply a guess. Returns True if guess revealed at least one letter."""
         if self.status != "in_progress":
             return False
         if not letter or len(letter) != 1 or not letter.isalpha():
@@ -84,7 +77,6 @@ class HangmanGame:
         return False
 
     def timeout_penalty(self) -> None:
-        """Deduct a life due to timer expiration."""
         if self.status != "in_progress":
             return
         self.lives -= 1
@@ -97,7 +89,6 @@ class HangmanGame:
                 return False
         return True
 
-    # -------------------- Factory helpers --------------------
     @classmethod
     def new_basic(cls, provider: Optional[WordProvider] = None, lives: int = 6) -> "HangmanGame":
         p = provider or WordProvider()

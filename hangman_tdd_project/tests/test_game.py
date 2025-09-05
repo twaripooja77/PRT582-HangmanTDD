@@ -39,12 +39,12 @@ class HangmanTests(unittest.TestCase):
         # spaces remain visible by default
         self.assertEqual(game.masked(), "____ _______")
         game.guess("e")
-        self.assertEqual(game.masked().count("e"), 2)  # 'science' has two e's
+        self.assertEqual(game.masked().count("e"), 2)  
         self.assertEqual(game.status, "in_progress")
 
     def test_masking_policy_all_chars(self):
         game = HangmanGame(answer="unit testing", lives=6, provider=self.provider, masking=MaskingPolicy.ALL_CHARS)
-        self.assertEqual(game.masked(), "____ _______")  # space visible, others masked
+        self.assertEqual(game.masked(), "____ _______")  
         # guess all unique letters to win
         for ch in set("unitesting"):
             game.guess(ch)
